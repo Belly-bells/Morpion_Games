@@ -1,7 +1,7 @@
 * {
   padding: 0;
   margin: 0;
-  color: var(--couleur-typographique);
+  box-sizing: border-box;
 }
 /* A mettre en premier dans n'importe quelle feuille de style CSS */
 /* Attention, l'* surcharge le code donc toute modification sera impossible*/
@@ -30,7 +30,47 @@
   display: flex;
 }
 
+#modal input {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+}
+
+#modal button {
+  padding: 10px 24px;
+  border-radius: 12px;
+  border: none;
+  background-color: var(--orange);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+}
+
+#modal button:hover {
+  transform: scale(1.05);
+}
+
 #game-zone {
-  font-family: Arial, Helvetica, sans-serif;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colonnes égales */
+  width: 300px;
+  height: 300px;
   background-image: url(/morpion-grid.svg);
+  background-size: cover;
+  margin: 0 auto;
+}
+
+.caseGameZone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.caseGameZone:hover {
+  background-color: rgba(245, 73, 39, 0.15); /* orange transparent au survol */
 }
