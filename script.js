@@ -71,6 +71,7 @@ document.querySelectorAll(".caseGameZone").forEach((cell) => {
     if (board[index] === "") {
       board[index] = currentPlayer.symbole;
       e.target.textContent = currentPlayer.symbole;
+      e.target.classList.add("jouee");
       error.textContent = "";
 
       if (checkWin(board, currentPlayer)) {
@@ -106,6 +107,7 @@ resetBtn.addEventListener("click", () => {
   //Vider les cases
   document.querySelectorAll(".caseGameZone").forEach((cell) => {
     cell.textContent = "";
+    cell.classList.remove("jouee");
   });
 
   //Remise à 0 des messages

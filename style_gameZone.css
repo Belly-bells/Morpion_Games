@@ -11,8 +11,20 @@
   --couleurPrincipale: #000;
   --orange: #f54927;
   --couleur-typographique: white;
+  --blanc: #ffffff;
+  --noir: #1a1a1a;
+  --vert-victoire: #2ecc71;
 }
 
+body {
+  background-color: var(--gris-clair);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  gap: 30px;
+}
 #modal {
   display: none;
   position: fixed;
@@ -53,24 +65,87 @@
 
 #game-zone {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 colonnes égales */
-  width: 300px;
-  height: 300px;
+  grid-template-columns: repeat(3, 135px); /* 3 colonnes égales */
+  grid-template-rows: repeat(3, 135px);
+  width: 405px;
+  height: 405px;
   background-image: url(/morpion-grid.svg);
-  background-size: cover;
-  margin: 0 auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 450px 450px;
+  margin: 40px auto;
 }
 
 .caseGameZone {
+  width: 135px;
+  height: 135px;
+  min-width: 135px;
+  min-height: 135px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
   font-weight: bold;
   cursor: pointer;
+  overflow: hidden;
+  background-color: transparent;
   transition: background-color 0.2s ease;
+  user-select: none; /*Empêche la sélection du texte au clic*/
 }
 
 .caseGameZone:hover {
-  background-color: rgba(245, 73, 39, 0.15); /* orange transparent au survol */
+  background-color: var(--orange);
+}
+
+.caseGameZone.jouee {
+  cursor: default;
+  pointer-events: none; /*Désactivation des clics sur les cases jouées*/
+}
+
+#game-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--blanc);
+  padding: 20px 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* ombre douce pour la profondeur */
+  width: 300px; /* même largeur que la grille pour l'alignement visuel */
+}
+#game-board h2 {
+  font-size: 1.2rem;
+  color: var(--noir);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+#msg-win {
+  min-height: 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--vert-victoire);
+  text-align: center;
+}
+
+#msg-error {
+  min-height: 20px;
+  font-size: 0.85rem;
+  color: var(--orange);
+  text-align: center;
+}
+
+#btn-reset {
+  padding: 8px 20px;
+  border-radius: 10px;
+  border: 2px solid var(--orange);
+  background-color: transparent;
+  color: var(--orange);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#btn-reset:hover {
+  background-color: var(--orange);
+  color: var(--blanc);
 }
