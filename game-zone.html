@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="style_gameZone.css" />
+    <script type="module" src="script.js" defer></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="modal">
+      <input type="text" id="player1" placeholder="Nom du joueur 1" />
+      <input type="text" id="player2" placeholder="Nom du joueur 2" />
+      <button id="btn-X">X</button>
+      <button id="btn-O">O</button>
+      <button id="btn-start">Démarrer le jeu</button>
+    </div>
+    <div id="game-board" class="container">
+      <h2>SCORE :</h2>
+      <p id="msg-error"></p>
+      <p id="msg-win"></p>
+      <button type="button" id="btn-reset">Recommencer</button>
+    </div>
+    <section id="game-zone"></section>
+  </body>
+</html>
